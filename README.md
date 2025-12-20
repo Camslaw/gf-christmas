@@ -74,7 +74,7 @@ Every interaction is meant to feel:
 
 ---
 
-## 🌟 Final Thought
+## Final Thought
 
 This isn’t meant to be a “big” app.  
 It’s meant to be a **small, sentimental gift**.
