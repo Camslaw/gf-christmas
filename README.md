@@ -46,7 +46,7 @@ No frameworks. No build tools. Just clean, simple web tech.
 
 1. Clone or download the project
 2. Open `index.html` in a browser
-3. That’s it ✨
+3. That’s it
 
 No setup required.
 
