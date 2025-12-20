@@ -1,7 +1,7 @@
 const messages = [
-	"One thing I really love about you is how you make everything feel lighter just by being you.",
-	"My favorite moment with you so far is one I replay in my head when I miss you.",
-	"I want to keep choosing you and building something real together."
+	"我真的很喜欢你的幽默，还有你偶尔小小地逗我一下。每次都让我忍不住笑出来。",
+	"在我心里，你就是最漂亮的女生。",
+	"你对我真的很好，也很温柔。我每次想到这些，心都会软一下。"
 ];
 
 let opened = 0;
@@ -12,8 +12,24 @@ const messageBox = document.getElementById('messageBox');
 const progress = document.getElementById('progress');
 const backButton = document.getElementById('backButton');
 const toQuestionBtn = document.getElementById('toQuestionBtn');
+const notYetBtn = document.getElementById('notYetBtn');
+const notYetMsg = document.getElementById('notYetMsg');
+
+let notYetCount = 0;
+
+const notYetLines = [
+	"诶诶先别点这个嘛～😗",
+	"真的要“再等等”吗？我有点舍不得 😭",
+	"那我再努力一点点，好不好？🥺"
+];
 
 toQuestionBtn.classList.remove('show');
+
+function resetNotYet() {
+	notYetCount = 0;
+	notYetMsg.textContent = "";
+	notYetBtn.classList.remove('shake');
+}
 
 function goTo(id, fromBack = false) {
 	const current = document.querySelector('.screen.active');
@@ -24,6 +40,15 @@ function goTo(id, fromBack = false) {
 
 	document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
 	document.getElementById(id).classList.add('active');
+
+	// Reset the playful "not yet" message whenever we land on the question screen
+	if (id === "screen-question") {
+		resetNotYet();
+	}
+
+	if (current && current.id === "screen-question" && id !== "screen-question") {
+		resetNotYet();
+	}
 
 	backButton.style.display = historyStack.length > 0 ? 'block' : 'none';
 }
@@ -36,10 +61,14 @@ function goBack() {
 }
 
 function openOrnament(index) {
+	// Always allow rereading
+	messageBox.textContent = messages[index];
+
+	// If it's already opened, don't count again
 	if (ornaments[index].classList.contains('opened')) return;
 
+	// First-time open logic
 	ornaments[index].classList.add('opened');
-	messageBox.textContent = messages[index];
 	opened++;
 	progress.textContent = `${opened} / 3 已打开`;
 
@@ -54,6 +83,22 @@ function yes() {
 }
 
 function notYet() {
+	// Shake a few times first
+	if (notYetCount < 3) {
+		notYetCount++;
+
+		// Update message (use the next line each time)
+		notYetMsg.textContent = notYetLines[Math.min(notYetCount - 1, notYetLines.length - 1)];
+
+		// Trigger shake animation (restart it reliably)
+		notYetBtn.classList.remove('shake');
+		void notYetBtn.offsetWidth; // forces reflow so animation can replay
+		notYetBtn.classList.add('shake');
+
+		return;
+	}
+
+	// After 3 tries, allow "Not yet" to proceed normally
 	goTo('screen-notyet');
 }
 

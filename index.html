@@ -39,21 +39,28 @@
 
 	<div class="screen" id="screen-question">
 		<h1>你愿意当我女朋友吗？</h1>
-		<button onclick="yes()">愿意 💛</button>
-		<button class="secondary" onclick="notYet()">再等等</button>
+		<button onclick="yes()">愿意 ❤️</button>
+		<button id="notYetBtn" class="secondary" onclick="notYet()">再等等</button>
+		<p id="notYetMsg" style="min-height:24px; margin-top:12px;"></p>
 	</div>
 
 	<div class="screen" id="screen-yes">
 		<h1>这是我过过最开心的一个圣诞节 🥹</h1>
-		<p>我真的好开心，以后我会好好对你的</p>
+		<p>我真的好开心。我会一直好好对你的。</p>
 		<p>过来一下 😚</p>
+		
+		<div class="heart-container">
+			<div class="heart"></div>
+			<div class="heart-text">丽丽 + 明杰</div>
+		</div>
 	</div>
 
 	<div class="screen" id="screen-notyet">
-		<h1>That’s okay 💛</h1>
-		<p>I’m still really glad I made this for you.</p>
+		<h1>没关系 ❤️</h1>
+		<p>我还是很开心能为你做这个</p>
 	</div>
 
 	<script src="script.js"></script>
 </body>
 </html>
+
