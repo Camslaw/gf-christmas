@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Merry Christmas 🎄</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+	<div class="back-button" id="backButton" onclick="goBack()" style="display:none;">
+		←
+	</div>
+
+	<div class="screen active" id="screen-intro">
+		<h1>圣诞快乐 🎄</h1>
+		<p>我给你准备了一个小礼物</p>
+		<button onclick="goTo('screen-tree')">打开礼物</button>
+	</div>
+
+	<div class="screen" id="screen-tree">
+		<div class="tree">🎄</div>
+		<p>点击每一个小礼物</p>
+
+		<div class="ornaments">
+			<div class="ornament" onclick="openOrnament(0)">🎁</div>
+			<div class="ornament" onclick="openOrnament(1)">🎁</div>
+			<div class="ornament" onclick="openOrnament(2)">🎁</div>
+		</div>
+
+		<div class="message-box" id="messageBox"></div>
+		<div class="progress" id="progress">0 / 3 已打开</div>
+
+		<button id="toQuestionBtn" onclick="goTo('screen-question')">
+			继续
+		</button>
+	</div>
+
+	<div class="screen" id="screen-question">
+		<h1>你愿意当我女朋友吗？</h1>
+		<button onclick="yes()">愿意 💛</button>
+		<button class="secondary" onclick="notYet()">再等等</button>
+	</div>
+
+	<div class="screen" id="screen-yes">
+		<h1>这是我过过最开心的一个圣诞节 🥹</h1>
+		<p>我真的好开心，以后我会好好对你的</p>
+		<p>过来一下 😚</p>
+	</div>
+
+	<div class="screen" id="screen-notyet">
+		<h1>That’s okay 💛</h1>
+		<p>I’m still really glad I made this for you.</p>
+	</div>
+
+	<script src="script.js"></script>
+</body>
+</html>
