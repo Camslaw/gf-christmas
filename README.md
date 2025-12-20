@@ -1,4 +1,4 @@
-# Merry Christmas — A Small Interactive and Romantic Gift
+# A Small Interactive and Romantic Christmas Gift
 
 This is a small interactive web project I made as a Christmas gift for a girl.  
 It is designed to feel playful, warm, and personal, while staying simple and lightweight.
