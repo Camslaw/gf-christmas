@@ -3,6 +3,10 @@
 	font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
+html {
+  overflow-y: scroll;
+}
+
 body {
 	margin: 0;
 	background: linear-gradient(#0f2027, #203a43, #2c5364);
@@ -15,16 +19,48 @@ body {
 	text-align: center;
 }
 
+.back-button,
 .audio-button {
 	position: fixed;
 	top: 16px;
-	left: 56px; /* right next to back button */
-	font-size: 1.4rem;
-	cursor: pointer;
-	opacity: 0.8;
+	height: 32px;
+	display: flex;
+	align-items: center;
+	line-height: 1;
+	z-index: 9999;
 	user-select: none;
+	opacity: 0.8;
 }
 
+.audio-button {
+	transform: translateY(1px);
+}
+
+.back-button {
+	left: 16px;
+	font-size: 1.4rem;
+	cursor: pointer;
+	transition: opacity 0.15s ease;
+}
+
+.back-button.hidden {
+	opacity: 0;
+	pointer-events: none;
+}
+
+.audio-button {
+	right: 16px;
+	gap: 6px;
+	font-size: 0.95rem;
+	cursor: pointer;
+}
+
+.audio-icon {
+	font-size: 1.4rem;
+	line-height: 1;
+}
+
+.back-button:hover,
 .audio-button:hover {
 	opacity: 1;
 }
@@ -66,20 +102,6 @@ button.secondary {
 	background: transparent;
 	color: #fff;
 	border: 1px solid rgba(255,255,255,0.4);
-}
-
-.back-button {
-	position: fixed;
-	top: 16px;
-	left: 16px;
-	font-size: 1.4rem;
-	cursor: pointer;
-	opacity: 0.8;
-	user-select: none;
-}
-
-.back-button:hover {
-	opacity: 1;
 }
 
 .tree {

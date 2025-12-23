@@ -9,12 +9,13 @@
 
 <body>
 
-	<div class="back-button" id="backButton" onclick="goBack()" style="display:none;">
+	<div class="back-button hidden" id="backButton" onclick="goBack()">
 		←
 	</div>
 
 	<div class="audio-button" id="audioBtn" onclick="toggleMusic()">
-		🔈
+		<span class="audio-icon">🔈</span>
+		<span class="audio-text">播放 / 暂停音乐</span>
 	</div>
 
 	<audio id="bgMusic" loop>

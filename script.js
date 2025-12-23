@@ -20,14 +20,16 @@ const audioBtn = document.getElementById("audioBtn");
 let musicStarted = false;
 
 function toggleMusic() {
+	const icon = audioBtn.querySelector(".audio-icon");
+
 	if (bgMusic.paused) {
 		bgMusic.volume = 0.35;
 		bgMusic.play().catch(() => {});
-		audioBtn.textContent = "🔊";
+		icon.textContent = "🔊";
 		musicStarted = true;
 	} else {
 		bgMusic.pause();
-		audioBtn.textContent = "🔈";
+		icon.textContent = "🔈";
 	}
 }
 
@@ -66,9 +68,8 @@ function goTo(id, fromBack = false) {
 		resetNotYet();
 	}
 
-	const showNav = historyStack.length > 0;
-	backButton.style.display = showNav ? 'block' : 'none';
-	audioBtn.style.display = showNav ? 'block' : 'none';
+	const showBack = historyStack.length > 0;
+	backButton.classList.toggle("hidden", !showBack);
 }
 
 function goBack() {
