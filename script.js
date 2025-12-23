@@ -14,6 +14,22 @@ const backButton = document.getElementById('backButton');
 const toQuestionBtn = document.getElementById('toQuestionBtn');
 const notYetBtn = document.getElementById('notYetBtn');
 const notYetMsg = document.getElementById('notYetMsg');
+const bgMusic = document.getElementById("bgMusic");
+const audioBtn = document.getElementById("audioBtn");
+
+let musicStarted = false;
+
+function toggleMusic() {
+	if (bgMusic.paused) {
+		bgMusic.volume = 0.35;
+		bgMusic.play().catch(() => {});
+		audioBtn.textContent = "🔊";
+		musicStarted = true;
+	} else {
+		bgMusic.pause();
+		audioBtn.textContent = "🔈";
+	}
+}
 
 let notYetCount = 0;
 
@@ -50,7 +66,9 @@ function goTo(id, fromBack = false) {
 		resetNotYet();
 	}
 
-	backButton.style.display = historyStack.length > 0 ? 'block' : 'none';
+	const showNav = historyStack.length > 0;
+	backButton.style.display = showNav ? 'block' : 'none';
+	audioBtn.style.display = showNav ? 'block' : 'none';
 }
 
 function goBack() {

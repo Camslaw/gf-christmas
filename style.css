@@ -15,6 +15,20 @@ body {
 	text-align: center;
 }
 
+.audio-button {
+	position: fixed;
+	top: 16px;
+	left: 56px; /* right next to back button */
+	font-size: 1.4rem;
+	cursor: pointer;
+	opacity: 0.8;
+	user-select: none;
+}
+
+.audio-button:hover {
+	opacity: 1;
+}
+
 .screen {
 	display: none;
 	padding: 24px;
